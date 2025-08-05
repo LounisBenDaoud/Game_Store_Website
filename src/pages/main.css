@@ -1,0 +1,78 @@
+main {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 15px;
+    border: 8px solid var(--bgcolor);
+    background-color: var(--bgcolor);
+    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.15),    5px 5px 15px rgba(0, 0, 0, 0.35),    inset -5px -5px 15px rgba(255, 255, 255, 0.15),    inset 5px 5px 15px rgba(0, 0, 0, 0.35);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+.banner {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: var(--bgcolor);
+    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),    5px 5px 15px rgba(0, 0, 0, 0.35);
+    transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+}
+
+.banner.active {
+    position: relative;
+    width: 93%;
+    transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+}
+
+section {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    top: 100vh;
+    bottom: 0;
+    padding: 0 30px;
+    opacity: 0;
+    transition: ease-in-out 1s;
+    transform-origin: bottom;
+    z-index: 1000;
+    -webkit-transition: ease-in-out 1s;
+    -moz-transition: ease-in-out 1s;
+    -ms-transition: ease-in-out 1s;
+    -o-transition: ease-in-out 1s;
+}
+
+section::-webkit-scrollbar {
+    display: none;
+}
+
+section.active {
+    top: 55px;
+    height: auto;
+    overflow-y: visible;
+    opacity: 1;
+}
