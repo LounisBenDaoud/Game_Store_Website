@@ -14,6 +14,11 @@ function GameCard({ game }) {
         setLibrary(library.filter(item => item._id !== game._id));
     }
 
+    const handleAddToBag = game => {
+        if (bag.includes(game)) return;
+        setBag([...bag, game]);
+    }
+
     return (
         <div className="col-xl-3 col-lg-4 col-md-6">
             <div className="gameCard">
@@ -32,7 +37,7 @@ function GameCard({ game }) {
                 </div>
                 <div className="gameTitle mt-4 mb-3">{game.title}</div>
                 <div className="gamePrice">
-                    {game.discount != 0 && (
+                    {game.discount !== 0 && (
                         <>
                             <span className="discount">
                                 <i>{game.discount * 100}%</i>
@@ -44,7 +49,7 @@ function GameCard({ game }) {
                         ${((1 - game.discount) * game.price).toFixed(2)}
                     </span>
                 </div>
-                <a href="#" className="addBag">
+                <a href="#" className="addBag" onClick={() => handleAddToBag(game)}>
                     <i className="bi bi-bag-plus-fill"></i>
                 </a>
             </div>
