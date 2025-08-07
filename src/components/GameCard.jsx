@@ -1,13 +1,15 @@
-import React, { useContext } from 'react'
-import './gamecard.css'
-import GameRating from './GameRating'
-import { AppContext } from '../App'
+import React, { useContext } from 'react';
+import './gamecard.css';
+import GameRating from './GameRating';
+import { AppContext } from '../App';
 
 function GameCard({ game }) {
-    const { library, setLibrary, bag, setBag } = useContext(AppContext);
+    const { library, setLibrary, bag, setBag, showToast } = useContext(AppContext);
 
     const handleAddToLibrary = game => {
+        if (library.some(item => item._id === game._id)) return;
         setLibrary([...library, game]);
+        showToast && showToast('Added to your library!');
     }
 
     const handleRemoveFromLibrary = game => {
@@ -15,8 +17,9 @@ function GameCard({ game }) {
     }
 
     const handleAddToBag = game => {
-        if (bag.includes(game)) return;
+        if (bag.some(item => item._id === game._id)) return;
         setBag([...bag, game]);
+        showToast && showToast('Added to your bag!');
     }
 
     return (
@@ -57,4 +60,4 @@ function GameCard({ game }) {
     );
 }
 
-export default GameCard
+export default GameCard;

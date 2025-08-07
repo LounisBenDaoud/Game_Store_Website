@@ -76,7 +76,7 @@ function Main() {
         <div className="container-fluid">
           {games && games.length > 0 && (
             <>
-              <Home games={games} ref={homeRef} />
+              <Home games={games} ref={homeRef} handleSectionActive={handleSectionActive} />
               <Categories games={games} ref={categoriesRef} />
               <MyLibrary games={library} ref={libraryRef} />
               <Bag games={bag} ref={bagRef} />

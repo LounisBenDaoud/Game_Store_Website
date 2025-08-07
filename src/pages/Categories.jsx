@@ -6,6 +6,9 @@ import GameCard from "../components/GameCard";
 const Categories = React.forwardRef(({ games }, ref) => {
     const [data, setData] = useState(games);
     const [filters, setFilters] = useState(filterListData);
+    const [isAnimating, setIsAnimating] = useState(false);
+    const [text, setText] = useState("");
+
     const handleFilterGames = category => {
         setFilters(
             filters.map(filter => {
@@ -15,19 +18,29 @@ const Categories = React.forwardRef(({ games }, ref) => {
                 }
                 return filter;
             })
-        )
-        if (category === "All") {
-            setData(games);
-            return;
-        }
-        setData(games.filter(game => game.category === category));
+        );
+        setIsAnimating(true);
+        setTimeout(() => {
+            if (category === "All") {
+                setData(games);
+            } else {
+                setData(games.filter(game => game.category === category));
+            }
+            setIsAnimating(false);
+        }, 400);
     };
 
-    const [text, setText] = useState("");
+
     const handleSearchGames = (e) => {
-        setData(games.filter(game => game.title.toLowerCase().includes(e.target.value.toLowerCase())));        setText(e.target.value);
-        setText(e.target.value);
+        setIsAnimating(true);
+        const value = e.target.value;
+        setText(value);
+        setTimeout(() => {
+            setData(games.filter(game => game.title.toLowerCase().includes(value.toLowerCase())));
+            setIsAnimating(false);
+        }, 400);
     };
+
     return (
         <section id="categories" className="categories" ref={ref}>
             <div className="container-fluid mt-2">
@@ -47,14 +60,14 @@ const Categories = React.forwardRef(({ games }, ref) => {
                         <div className="search">
                             <i className="bi bi-search"></i>
                             <input type="text"
-                             name="search"
-                             value={text}
-                            placeholder="Search"
-                            onChange={handleSearchGames} />
+                                name="search"
+                                value={text}
+                                placeholder="Search"
+                                onChange={handleSearchGames} />
                         </div>
                     </div>
                 </div>
-                <div className="row">
+                <div className={`row category-anim${isAnimating ? ' animating' : ''}`}>
                     {data.map(game => (
                         <GameCard key={game._id} game={game} />
                     ))}

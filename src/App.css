@@ -1,21 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-@import url(https://db.onlinewebfonts.com/c/3066b11123e63381b8e2aa554b18bf32?family=Bauhaus+93+V1);
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 :root {
-    --primary: #0d171f;
-    --second : #0998a8;
-    --bgcolor: #192938;
+    --primary: #181c24;
+    --second: #5eead4;
+    --accent: #a78bfa;
+    --bgcolor: #10141a;
+    --card-bg: #1a202c;
+    --text: #f3f4f6;
+    --muted: #64748b;
+    --danger: #ef4444;
+    --shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.45);
 }
 
-h1, h2, h4, p {
-    color: white;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 body {
     position: relative;
@@ -23,5 +18,42 @@ body {
     font-family: 'Roboto', sans-serif;
     width: 100%;
     min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
+    color: var(--text);
+    transition: background 0.5s;
+}
+
+h1,
+h2,
+h4,
+p {
+    color: var(--text);
+}
+
+
+:root.theme-dark h1,
+:root.theme-dark h2,
+:root.theme-dark h4,
+:root.theme-dark p,
+:root.theme-dark body {
+    color: var(--text);
+    background: var(--bgcolor);
+}
+
+:root.theme-light h1,
+:root.theme-light h2,
+:root.theme-light h4,
+:root.theme-light p,
+:root.theme-light body {
+    color: var(--text);
+    background: var(--bgcolor);
+}
+
+body {
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background 0.5s;
 }
