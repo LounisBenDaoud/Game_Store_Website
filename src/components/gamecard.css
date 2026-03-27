@@ -3,57 +3,58 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 25px 20px 20px 20px;
-    margin-bottom: 25px;
+    padding: 18px;
+    margin-bottom: 20px;
     width: auto;
-    min-height: 420px;
-    border-radius: 20px;
-    background: var(--card-bg);
-    box-shadow: var(--shadow);
-    transition: transform 0.3s cubic-bezier(.4, 2, .6, 1), box-shadow 0.3s;
+    min-height: 404px;
+    border-radius: 22px;
+    border: 1px solid var(--line);
+    background: linear-gradient(160deg, rgba(16, 25, 43, 0.95), rgba(11, 18, 32, 0.95));
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.26s ease, box-shadow 0.26s ease;
     overflow: hidden;
 }
 
 
 .gameCard:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 8px 40px 0 rgba(94, 234, 212, 0.15), var(--shadow);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 30px rgba(2, 6, 16, 0.55);
 }
 
 
 .gameCard img {
-    border-radius: 16px;
-    margin-bottom: 15px;
+    border-radius: 14px;
+    margin-bottom: 12px;
     object-fit: cover;
     object-position: center;
-    height: 50%;
+    height: 210px;
     width: 100%;
-    box-shadow: 0 2px 16px 0 rgba(167, 139, 250, 0.08);
-    transition: box-shadow 0.3s;
+    box-shadow: 0 10px 20px rgba(17, 24, 39, 0.16);
 }
 
 
 .gameCard .like {
     position: absolute;
-    top: 24px;
-    right: 19px;
-    width: 40px;
-    height: 40px;
-    background: var(--card-bg);
-    padding: 5px;
-    border-radius: 0 0 0 20px;
+    top: 26px;
+    right: 24px;
+    width: 36px;
+    height: 36px;
+    background: rgba(15, 23, 42, 0.88);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    padding: 0;
+    border-radius: 50%;
     color: var(--muted);
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background 0.3s, color 0.3s;
-    box-shadow: 0 2px 8px 0 rgba(94, 234, 212, 0.08);
+    transition: background 0.25s ease, color 0.25s ease;
+    box-shadow: 0 8px 16px rgba(17, 24, 39, 0.16);
 }
 
 
 .gameCard .like.active {
-    color: var(--second);
-    background: rgba(94, 234, 212, 0.08);
+    color: #fff;
+    background: var(--accent);
 }
 
 
@@ -69,25 +70,25 @@
 
 
 .gameCard .gameType {
-    background: var(--second);
-    color: #181c24;
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    box-shadow: 0 2px 8px 0 rgba(94, 234, 212, 0.08);
-    transition: background 0.3s, color 0.3s;
+    background: var(--accent-soft);
+    color: #f8d6b3;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
 
 .gameCard .gameTitle {
-    margin-top: 10px;
-    font-family: 'Bauhaus 93';
+    margin-top: 14px;
+    font-family: 'Bebas Neue', sans-serif;
     text-transform: uppercase;
-    font-size: 1.1rem;
-    color: var(--accent);
-    letter-spacing: 1.5px;
-    transition: color 0.3s;
+    font-size: 1.45rem;
+    line-height: 1;
+    color: var(--text);
+    letter-spacing: 0.04em;
 }
 
 
@@ -97,17 +98,17 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 40px;
-    /* space for addBag button */
+    margin-top: 8px;
+    margin-bottom: 52px;
 }
 
 
 .gameCard .discount {
-    background: var(--danger);
+    background: #ef4444;
     color: #fff;
     padding: 2px 8px;
-    border-radius: 10px;
-    font-size: 1.1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
     font-weight: 800;
 }
 
@@ -122,36 +123,42 @@
 
 
 .gameCard .currentPrice {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
     font-weight: 700;
-    color: var(--second);
-    text-shadow: 0 2px 8px rgba(94, 234, 212, 0.15);
-    transition: color 0.3s;
+    color: #22d3ee;
 }
 
 
 
 .gameCard .addBag {
     position: absolute;
-    left: 50%;
+    right: 18px;
     bottom: 16px;
-    transform: translateX(-50%);
-    width: 44px;
-    height: 44px;
-    background: var(--second);
-    color: #181c24;
-    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, #0ea5a4, #0f766e);
+    color: #fff;
+    border-radius: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.3rem;
-    box-shadow: 0 2px 8px 0 rgba(94, 234, 212, 0.15);
-    transition: background 0.3s, color 0.3s, transform 0.2s;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 16px rgba(15, 118, 110, 0.26);
+    transition: transform 0.2s ease, filter 0.2s ease;
     z-index: 2;
 }
 
 .gameCard .addBag:hover {
-    background: var(--accent);
-    color: #fff;
-    transform: scale(1.1);
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 575px) {
+    .gameCard {
+        min-height: 392px;
+    }
+
+    .gameCard img {
+        height: 196px;
+    }
 }

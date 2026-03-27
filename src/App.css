@@ -1,59 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 :root {
-    --primary: #181c24;
-    --second: #5eead4;
-    --accent: #a78bfa;
-    --bgcolor: #10141a;
-    --card-bg: #1a202c;
-    --text: #f3f4f6;
-    --muted: #64748b;
-    --danger: #ef4444;
-    --shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.45);
+    --primary: #0f172a;
+    --second: #22d3ee;
+    --accent: #f97316;
+    --accent-soft: #3b2a1f;
+    --bgcolor: #050b15;
+    --card-bg: #0d1628;
+    --surface: #111b2f;
+    --text: #e6edf8;
+    --muted: #9fb0ca;
+    --danger: #dc2626;
+    --line: #26334d;
+    --shadow: 0 20px 45px rgba(2, 6, 16, 0.55);
+    --shadow-soft: 0 12px 28px rgba(2, 6, 16, 0.45);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+* {
+    box-sizing: border-box;
+}
 
 body {
     position: relative;
-    background: var(--bgcolor);
-    font-family: 'Roboto', sans-serif;
     width: 100%;
     min-height: 100vh;
+    margin: 0;
     overflow-x: hidden;
+    font-family: 'Space Grotesk', sans-serif;
     color: var(--text);
-    transition: background 0.5s;
+    background:
+        radial-gradient(circle at 10% 12%, rgba(249, 115, 22, 0.16), transparent 26%),
+        radial-gradient(circle at 88% 18%, rgba(34, 211, 238, 0.14), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(59, 130, 246, 0.12), transparent 34%),
+        var(--bgcolor);
 }
 
 h1,
 h2,
+h3,
 h4,
-p {
+h5,
+h6 {
+    margin: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.04em;
     color: var(--text);
 }
 
-
-:root.theme-dark h1,
-:root.theme-dark h2,
-:root.theme-dark h4,
-:root.theme-dark p,
-:root.theme-dark body {
-    color: var(--text);
-    background: var(--bgcolor);
+p,
+span,
+a,
+button,
+input {
+    font-family: 'Space Grotesk', sans-serif;
 }
 
-:root.theme-light h1,
-:root.theme-light h2,
-:root.theme-light h4,
-:root.theme-light p,
-:root.theme-light body {
-    color: var(--text);
-    background: var(--bgcolor);
+a {
+    color: inherit;
 }
 
-body {
-    position: relative;
-    font-family: 'Roboto', sans-serif;
-    width: 100%;
-    min-height: 100vh;
-    overflow-x: hidden;
-    transition: background 0.5s;
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0b1322;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ff8a5b, #0ea5a4);
+    border-radius: 999px;
 }

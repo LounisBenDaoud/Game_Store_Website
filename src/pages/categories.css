@@ -2,12 +2,12 @@
 .category-anim {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.4s, transform 0.4s;
+    transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 .category-anim.animating {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(18px);
 }
 
 .filters {
@@ -15,50 +15,71 @@
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
-    margin: 20px 0 30px 0;
-    gap: 15px;
+    margin: 8px 0 18px;
+    gap: 10px;
 }
 
 .filters li {
-    color: #ffffff;
-    padding: 10px 25px;
-    transition: 0.3s;
-    border-radius: 10px;
+    color: var(--muted);
+    background: rgba(15, 23, 42, 0.74);
+    border: 1px solid var(--line);
+    padding: 9px 16px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    transition: all 0.2s ease;
+    border-radius: 999px;
     text-transform: uppercase;
     cursor: pointer;
 }
 
 .filters li:hover,
 .filters li.active {
-    box-shadow: -5px 5px 10px rgba(255, 255, 255, 0.1),
-        5px 5px 10px rgba(0, 0, 0, 0.35);
+    color: #fff;
+    border-color: transparent;
+    background: linear-gradient(135deg, #ff6b45, #0ea5a4);
+    box-shadow: 0 10px 20px rgba(17, 24, 39, 0.15);
 }
 
 .search {
-    color: #9c9c9c;
     display: inline-flex;
-    gap: 15px;
+    gap: 10px;
     align-items: center;
-    width: 300px;
-    height: 50px;
-    padding: 8px 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
-        5px 5px 15px rgba(0, 0, 0, 0.35);
+    width: min(100%, 320px);
+    height: 44px;
+    padding: 8px 14px;
+    margin-bottom: 12px;
+    border-radius: 14px;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    background: rgba(15, 23, 42, 0.8);
+    box-shadow: var(--shadow-soft);
 }
 
 .search input {
+    width: 100%;
     outline: none;
     border: none;
     background: transparent;
-    font-size: 1.2rem;
+    color: var(--text);
+    font-size: 0.95rem;
 }
 
 .search input:focus {
-    color: #ffffff;
+    color: var(--text);
 }
 
 .search input::placeholder {
-    color: #9c9c9c;
+    color: var(--muted);
+}
+
+@media (max-width: 991px) {
+    .filters {
+        margin-top: 0;
+    }
+
+    .search {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }

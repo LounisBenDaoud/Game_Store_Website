@@ -5,28 +5,34 @@
     align-items: center;
     justify-content: center;
     padding: 24px;
-    background: var(--bgcolor, #10141a);
+    background:
+        radial-gradient(circle at 12% 10%, rgba(249, 115, 22, 0.22), transparent 28%),
+        radial-gradient(circle at 85% 18%, rgba(34, 211, 238, 0.2), transparent 34%),
+        radial-gradient(circle at 50% 100%, rgba(59, 130, 246, 0.2), transparent 34%),
+        var(--bgcolor, #050b15);
 }
 
 .authCard {
     width: 100%;
-    max-width: 420px;
-    padding: 28px;
-    border-radius: 14px;
-    background: var(--card-bg, #1a202c);
-    color: var(--text, #f3f4f6);
-    box-shadow: var(--shadow, 0 4px 32px 0 rgba(0, 0, 0, 0.45));
-    border: 1px solid #2c3342;
+    max-width: 440px;
+    padding: 28px 26px;
+    border-radius: 24px;
+    border: 1px solid var(--line);
+    background: rgba(13, 22, 40, 0.92);
+    color: var(--text);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(12px);
 }
 
 .authCard h1 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 2.1rem;
 }
 
 .authCard p {
     margin: 8px 0 18px;
-    color: var(--muted, #94a3b8);
+    color: var(--muted);
+    font-size: 0.94rem;
 }
 
 .authSwitch {
@@ -37,17 +43,19 @@
 }
 
 .authSwitch button {
-    border: none;
-    border-radius: 10px;
-    padding: 10px;
-    color: var(--text, #f3f4f6);
-    background: var(--primary, #181c24);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 9px;
+    color: var(--muted);
+    font-weight: 700;
+    background: rgba(15, 23, 42, 0.88);
 }
 
 .authSwitch button.active {
-    background: var(--second);
-    color: #10141a;
+    background: linear-gradient(135deg, #ff6b45, #0ea5a4);
+    color: #fff;
     font-weight: 700;
+    border-color: transparent;
 }
 
 .authCard form {
@@ -57,37 +65,45 @@
 }
 
 .authCard label {
-    font-size: 0.85rem;
+    margin-top: 2px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
 .authCard input {
     width: 100%;
-    padding: 10px 12px;
-    border-radius: 10px;
-    border: 1px solid #2c3342;
-    color: var(--text, #f3f4f6);
-    background: var(--primary, #181c24);
+    padding: 11px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    color: var(--text);
+    background: rgba(15, 23, 42, 0.9);
 }
 
 .authCard input:focus {
     outline: none;
     border-color: var(--second);
+    box-shadow: 0 0 0 3px rgba(14, 165, 164, 0.2);
 }
 
 .authError {
-    color: var(--danger, #ef4444);
-    font-size: 0.85rem;
+    color: var(--danger);
+    font-size: 0.82rem;
     margin-top: 4px;
 }
 
 .authSubmit {
-    margin-top: 8px;
+    margin-top: 10px;
     border: none;
-    border-radius: 10px;
+    border-radius: 999px;
     padding: 12px;
     font-weight: 700;
-    color: #10141a;
-    background: var(--second);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #fff;
+    background: linear-gradient(135deg, #ff6b45, #0ea5a4);
 }
 
 .authSubmit:disabled {

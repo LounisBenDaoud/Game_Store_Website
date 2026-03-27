@@ -18,7 +18,7 @@ function GameCard({ game }) {
 
     const handleAddToBag = game => {
         if (bag.some(item => item._id === game._id)) return;
-        setBag([...bag, game]);
+        setBag(prevBag => [game, ...prevBag]);
         showToast && showToast('Added to your bag!');
     }
 

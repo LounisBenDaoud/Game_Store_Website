@@ -37,8 +37,8 @@ class AppErrorBoundary extends React.Component {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            background: "#10141a",
-            color: "#f3f4f6",
+            background: "#050b15",
+            color: "#e6edf8",
             padding: "24px",
             textAlign: "center",
           }}
@@ -132,8 +132,8 @@ function App() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  background: "#10141a",
-                  color: "#f3f4f6",
+                  background: "#050b15",
+                  color: "#e6edf8",
                 }}
               >
                 <p>Loading app...</p>

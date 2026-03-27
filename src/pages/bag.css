@@ -1,44 +1,63 @@
 .shopBagTable {
-    margin-top: 50px;
-    color: #fff;
+    margin-top: 16px;
+    color: var(--text);
     border-radius: 20px;
-    background-color: var(--bg-color);
-    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
-         5px 5px 15px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: rgba(15, 23, 42, 0.84);
+    box-shadow: var(--shadow-soft);
 }
 
-.shopBagTable thead tr{
-    font-size: 1.3rem;
+.shopBagTable thead tr {
+    font-size: 1rem;
 }
 
 .shopBagTable thead tr th {
-    background: transparent;
-    color: #fff;
+    background: rgba(17, 33, 54, 0.82);
+    color: #9fb0ca;
+    text-transform: uppercase;
+    font-size: 0.73rem;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--line);
 }
 
 .itemCount {
-    font-size: 1.3rem;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 .payment {
     display: inline-flex;
-    gap: 50px;
+    gap: 18px;
     align-items: center;
-    font-size: 1.3rem;
-    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    background: rgba(15, 23, 42, 0.86);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 10px 12px;
 }
 
 .payment a {
     color: #fff;
     text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 15px;
+    padding: 8px 14px;
+    border-radius: 999px;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    background: var(--bg-color);
-    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
-         5px 5px 15px rgba(0, 0, 0, 0.35);
+    gap: 8px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, #ff6b45, #0ea5a4);
 }
-    
 
+@media (max-width: 575px) {
+    .payment {
+        width: 100%;
+        justify-content: space-between;
+        padding: 10px;
+    }
+}

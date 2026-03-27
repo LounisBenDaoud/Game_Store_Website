@@ -1,8 +1,9 @@
 .gameCard .gameRating {
-    font-size: 1.3rem;
-    color: gold;
+    font-size: 1rem;
+    color: #f59e0b;
+    letter-spacing: 1px;
 }
 
 .gameCard .gameRating i {
-    margin-left: 2px;
+    margin-left: 1px;
 }

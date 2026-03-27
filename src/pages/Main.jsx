@@ -11,6 +11,7 @@ import Bag from "./Bag";
 function Main() {
   const { library, bag } = useContext(AppContext);
   const [active, setActive] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -48,10 +49,12 @@ function Main() {
   };
 
   const handleSectionActive = (target) => {
+    setActiveSection(target);
     sections.map((section) => {
       section.ref.current.classList.remove("active");
       if (section.ref.current.id === target) {
         section.ref.current.classList.add("active");
+        section.ref.current.scrollTop = 0;
       }
       return section;
     });
@@ -80,9 +83,17 @@ function Main() {
 
   return (
     <main>
-      <SideMenu active={active} sectionActive={handleSectionActive} />
+      <SideMenu
+        active={active}
+        sectionActive={handleSectionActive}
+        activeSection={activeSection}
+      />
       <div className={`banner ${active ? "active" : undefined}`}>
-        <Header toggleActive={handleToggleActive} sectionActive={handleSectionActive} />
+        <Header
+          toggleActive={handleToggleActive}
+          sectionActive={handleSectionActive}
+          activeSection={activeSection}
+        />
         <div className="container-fluid">
           {loading && <p>Loading games...</p>}
           {!loading && error && <p>{error}</p>}

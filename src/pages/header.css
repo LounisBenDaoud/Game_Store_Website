@@ -1,110 +1,160 @@
 header {
     position: absolute;
-    top: -10px;
+    top: 0;
     left: 0;
     width: 100%;
+    height: 90px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 30px;
-    z-index: 1000 !important;
-    background: transparent;
+    padding: 18px 24px;
+    z-index: 20;
+    background: linear-gradient(180deg, rgba(6, 10, 20, 0.92), rgba(6, 10, 20, 0.62) 68%, rgba(6, 10, 20, 0));
 }
 
 .menu {
-    font-size: 1.8rem;
-    color: white;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.45rem;
+    color: var(--text);
+    background: rgba(15, 23, 42, 0.84);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-soft);
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.menu:hover {
+    transform: translateY(-2px);
+    background: rgba(23, 34, 58, 0.95);
 }
 
 .userItems {
     display: inline-flex;
     align-items: center;
-    gap: 20px;
+    gap: 12px;
 }
 
 .userItems .icon {
     position: relative;
-    color: white;
-    font-size: 1.5rem;
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
-    5px 5px 15px rgba(0, 0, 0, 0.35);
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    font-size: 1.2rem;
+    color: var(--text);
+    border: 1px solid var(--line);
+    background: rgba(15, 23, 42, 0.84);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.userItems .icon:hover {
+    transform: translateY(-2px);
+    color: var(--accent);
+}
+
+.userItems .icon.active {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.24), rgba(34, 211, 238, 0.22));
+    border-color: rgba(34, 211, 238, 0.42);
+    color: #ffffff;
 }
 
 .userItems .icon .like,
 .userItems .icon .bag {
     position: absolute;
-    right: 0;
-    bottom: 10px;
-    font-size: 0.8rem;
-    font-weight: 800;
+    right: -6px;
+    bottom: -6px;
+    min-width: 20px;
     height: 20px;
-    width: 20px;
-    color: white;
-    padding: 6.4px;
-    background: var(--second);
-    border-radius: 50%;
-    display: flex;
-    justify-items: center;
+    padding: 0 5px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    display: inline-flex;
     align-items: center;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
+    justify-content: center;
 }
 
 .userItems .avatar {
-    width: 150px;
-    height: 50px ;
-    padding: 10px 20px;
+    min-width: 180px;
+    height: 50px;
+    padding: 8px 12px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
-    gap: 15px ;
-    border-radius: 10px;
-    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
-    5px 5px 15px rgba(0, 0, 0, 0.35);
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    gap: 12px;
+    border: 1px solid var(--line);
+    background: rgba(15, 23, 42, 0.88);
+    box-shadow: var(--shadow-soft);
 }
 
 .userItems .avatar img {
-    width: 35px;
-    height: 35px;
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
     border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
+    border: 2px solid var(--accent-soft);
 }
 
 .userItems .avatar a {
-    color: white;
-    font-size: 1.8rem;
+    text-decoration: none;
 }
 
 .userItems .avatar .user {
     display: flex;
     flex-direction: column;
+    line-height: 1.1;
 }
 
 .userItems .avatar .user span {
-    color: white;
-    font-size: 0.7rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text);
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .userItems .avatar .user a {
-    text-decoration: none;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--second);
+    letter-spacing: 0.02em;
+}
+
+.userItems .avatar .user a:hover {
+    color: var(--accent);
+}
+
+@media (max-width: 991px) {
+    header {
+        padding: 14px;
+        height: 82px;
+    }
+
+    .userItems .avatar {
+        min-width: 154px;
+    }
+}
+
+@media (max-width: 575px) {
+    .userItems .avatar {
+        min-width: auto;
+        padding: 8px;
+    }
+
+    .userItems .avatar .user {
+        display: none;
+    }
 }

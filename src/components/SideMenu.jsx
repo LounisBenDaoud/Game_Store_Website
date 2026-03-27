@@ -5,17 +5,10 @@ import socialListData from "../data/socialListData";
 import NavListItem from "./NavListItem";
 import SocialListItem from "./SocialListItem";
 
-function SideMenu({ active, sectionActive }) {
-  const [navData, setNavData] = useState(navListData);
+function SideMenu({ active, sectionActive, activeSection }) {
   const [socialData] = useState(socialListData);
 
-  const handleNavOnClick = (id, target) => {
-    const newNavData = navData.map((nav) => {
-      nav.active = false;
-      if (nav._id === id) nav.active = true;
-      return nav;
-    });
-    setNavData(newNavData);
+  const handleNavOnClick = (_id, target) => {
     sectionActive(target);
   };
 
@@ -26,10 +19,10 @@ function SideMenu({ active, sectionActive }) {
         <span className="brand">Play</span>
       </a>
       <ul className="nav">
-        {navData.map((item) => (
+        {navListData.map((item) => (
           <NavListItem
             key={item._id}
-            item={item}
+            item={{ ...item, active: item.target === activeSection }}
             navOnClick={handleNavOnClick}
           />
         ))}

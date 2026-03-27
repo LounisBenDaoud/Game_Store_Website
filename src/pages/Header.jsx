@@ -4,7 +4,7 @@ import userImg from "../images/me.jpg";
 import { AppContext } from "../App";
 
 
-function Header({ toggleActive, sectionActive }) {
+function Header({ toggleActive, sectionActive, activeSection }) {
     const { bag, library, currentUser, logout } = useContext(AppContext);
 
     return (
@@ -13,11 +13,19 @@ function Header({ toggleActive, sectionActive }) {
                 <i className="bi bi-sliders"></i>
             </a>
             <div className="userItems">
-                <a href="/" className="icon" onClick={(event) => { event.preventDefault(); sectionActive('library'); }}>
+                <a
+                    href="/"
+                    className={`icon ${activeSection === 'library' ? 'active' : ''}`}
+                    onClick={(event) => { event.preventDefault(); sectionActive('library'); }}
+                >
                     <i className="bi bi-heart-fill"></i>
                     <span className="like">{library.length}</span>
                 </a>
-                <a href="/" className="icon" onClick={(event) => { event.preventDefault(); sectionActive('bag'); }}>
+                <a
+                    href="/"
+                    className={`icon ${activeSection === 'bag' ? 'active' : ''}`}
+                    onClick={(event) => { event.preventDefault(); sectionActive('bag'); }}
+                >
                     <i className="bi bi-bag-fill"></i>
                     <span className="bag">{bag.length}</span>
                 </a>
