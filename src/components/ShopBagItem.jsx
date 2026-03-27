@@ -19,7 +19,13 @@ function ShopBagItem({ index, game }) {
             <td>{(game.discount * 100)}%</td>
             <td>${((1 - game.discount) * game.price).toFixed(2)}</td>
             <td>
-                <a href="#" onClick={() => handleRemoveFromBag(game)}>
+                <a
+                    href="/"
+                    onClick={(event) => {
+                        event.preventDefault();
+                        handleRemoveFromBag(game);
+                    }}
+                >
                     <i className="bi bi-trash3-fill"></i>
                 </a>
             </td>

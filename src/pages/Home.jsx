@@ -15,7 +15,7 @@ const Home = React.forwardRef(({ games, handleSectionActive }, ref) => (
           <h2 className="sectionTitle">Games on promotion</h2>
         </div>
         <div className="col-lg-6 d-flex justify-content-end align-items-center">
-          <a href="#" className="viewMore" onClick={e => { e.preventDefault(); handleSectionActive("categories"); }}>
+          <a href="/" className="viewMore" onClick={e => { e.preventDefault(); handleSectionActive("categories"); }}>
             View More Games <i className="bi bi-arrow-right"></i>
           </a>
         </div>

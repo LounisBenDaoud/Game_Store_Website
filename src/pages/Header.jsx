@@ -9,26 +9,26 @@ function Header({ toggleActive, sectionActive }) {
 
     return (
         <header>
-            <a href="#" className="menu" onClick={toggleActive}>
+            <a href="/" className="menu" onClick={(event) => { event.preventDefault(); toggleActive(); }}>
                 <i className="bi bi-sliders"></i>
             </a>
             <div className="userItems">
-                <a href="#" className="icon" onClick={() => sectionActive('library')}>
+                <a href="/" className="icon" onClick={(event) => { event.preventDefault(); sectionActive('library'); }}>
                     <i className="bi bi-heart-fill"></i>
                     <span className="like">{library.length}</span>
                 </a>
-                <a href="#" className="icon" onClick={() => sectionActive('bag')}>
+                <a href="/" className="icon" onClick={(event) => { event.preventDefault(); sectionActive('bag'); }}>
                     <i className="bi bi-bag-fill"></i>
                     <span className="bag">{bag.length}</span>
                 </a>
                 <div className="avatar">
-                    <a href="#">
-                        <img src={userImg} alt="User Image" />
+                    <a href="/" onClick={(event) => event.preventDefault()}>
+                        <img src={userImg} alt="User avatar" />
                     </a>
                     <div className="user">
                         <span>{currentUser?.username || "User"}</span>
                         <a
-                            href="#"
+                            href="/"
                             onClick={(event) => {
                                 event.preventDefault();
                                 logout();

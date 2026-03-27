@@ -26,12 +26,18 @@ function GameCard({ game }) {
         <div className="col-xl-3 col-lg-4 col-md-6">
             <div className="gameCard">
                 <img src={game.img} alt={game.title} className="img-fluid" />
-                <a href="#" className={`like ${library.includes(game) ? 'active' : undefined}`}
-                    onClick={
-                        library.includes(game) ? () =>
-                            handleRemoveFromLibrary(game)
-                            : () => handleAddToLibrary(game)
-                    }>
+                <a
+                    href="/"
+                    className={`like ${library.includes(game) ? 'active' : undefined}`}
+                    onClick={(event) => {
+                        event.preventDefault();
+                        if (library.includes(game)) {
+                            handleRemoveFromLibrary(game);
+                            return;
+                        }
+                        handleAddToLibrary(game);
+                    }}
+                >
                     <i className="bi bi-heart-fill"></i>
                 </a>
                 <div className="gameFeature">
@@ -52,7 +58,14 @@ function GameCard({ game }) {
                         ${((1 - game.discount) * game.price).toFixed(2)}
                     </span>
                 </div>
-                <a href="#" className="addBag" onClick={() => handleAddToBag(game)}>
+                <a
+                    href="/"
+                    className="addBag"
+                    onClick={(event) => {
+                        event.preventDefault();
+                        handleAddToBag(game);
+                    }}
+                >
                     <i className="bi bi-bag-plus-fill"></i>
                 </a>
             </div>

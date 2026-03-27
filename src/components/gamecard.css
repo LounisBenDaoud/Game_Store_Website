@@ -56,15 +56,6 @@
     background: rgba(94, 234, 212, 0.08);
 }
 
-.gameCard .like.active {
-    color: var(--second);
-    background: rgba(94, 234, 212, 0.08);
-}
-
-
-.gameCard span {
-    color: var(--text);
-}
 
 .gameCard span {
     color: var(--text);
@@ -88,27 +79,6 @@
     transition: background 0.3s, color 0.3s;
 }
 
-.gameCard .gameType {
-    background: var(--second);
-    color: #181c24;
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    box-shadow: 0 2px 8px 0 rgba(94, 234, 212, 0.08);
-    transition: background 0.3s, color 0.3s;
-}
-
-
-.gameCard .gameTitle {
-    margin-top: 10px;
-    font-family: 'Bauhaus 93';
-    text-transform: uppercase;
-    font-size: 1.1rem;
-    color: var(--accent);
-    letter-spacing: 1.5px;
-    transition: color 0.3s;
-}
 
 .gameCard .gameTitle {
     margin-top: 10px;
@@ -131,31 +101,12 @@
     /* space for addBag button */
 }
 
-.gameCard .gamePrice {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
 
 .gameCard .discount {
     background: var(--danger);
     color: #fff;
     padding: 2px 8px;
     border-radius: 10px;
-    font-size: 1.1rem;
-    font-weight: 800;
-}
-
-.gameCard .discount {
-    background: var(--danger);
-    color: #fff;
-    padding: 2px 8px;
-    border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
     font-size: 1.1rem;
     font-weight: 800;
 }
@@ -167,15 +118,6 @@
     -moz-text-decoration-color: #ff0000;
     text-decoration-thickness: 2px;
     font-size: 0.8rem;
-}
-
-
-.gameCard .currentPrice {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--second);
-    text-shadow: 0 2px 8px rgba(94, 234, 212, 0.15);
-    transition: color 0.3s;
 }
 
 

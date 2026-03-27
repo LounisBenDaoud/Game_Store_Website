@@ -7,7 +7,7 @@ import SocialListItem from "./SocialListItem";
 
 function SideMenu({ active, sectionActive }) {
   const [navData, setNavData] = useState(navListData);
-  const [socialData, setSocialData] = useState(socialListData);
+  const [socialData] = useState(socialListData);
 
   const handleNavOnClick = (id, target) => {
     const newNavData = navData.map((nav) => {
@@ -21,7 +21,7 @@ function SideMenu({ active, sectionActive }) {
 
   return (
     <div className={`sideMenu ${active ? "active" : undefined}`}>
-      <a href="#" className="logo">
+      <a href="/" className="logo" onClick={(event) => event.preventDefault()}>
         <i className="bi bi-controller"></i>
         <span className="brand">Play</span>
       </a>
@@ -39,7 +39,7 @@ function SideMenu({ active, sectionActive }) {
           <SocialListItem key={social._id} social={social} />
         ))}
         <li>
-          <a href="#" className="share">
+          <a href="/" className="share" onClick={(event) => event.preventDefault()}>
             <i className="bi bi-share"></i>
           </a>
         </li>

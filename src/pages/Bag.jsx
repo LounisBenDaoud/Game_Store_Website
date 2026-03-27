@@ -1,20 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./bag.css";
 import ShopBagItem from "../components/ShopBagItem";
 
 const Bag = React.forwardRef(({ games }, ref) => {
-    const [total, setTotal] = React.useState(0);
-
-    const handleTotalPayment = () => {
-        return games
+    const total = React.useMemo(
+        () => games
             .map(game => game.price * (1 - game.discount))
             .reduce((acc, curr) => acc + curr, 0)
-            .toFixed(2);
-    };
-
-    useEffect(() => {
-        setTotal(handleTotalPayment());
-    }, [games]);
+            .toFixed(2),
+        [games]
+    );
 
 
     return (
@@ -58,7 +53,7 @@ const Bag = React.forwardRef(({ games }, ref) => {
                             <div className="col-lg-10 d-flex justify-content-end ">
                                 <div className="payment">
                                     Total: {total}
-                                    <a href="#">Check out <i className="bi bi-wallet-fill"></i>
+                                    <a href="/" onClick={(event) => event.preventDefault()}>Check out <i className="bi bi-wallet-fill"></i>
                                     </a>
                                 </div>
                             </div>

@@ -65,7 +65,7 @@ function GameSwiper({ games }) {
             {games.map((game) => (
                 <SwiperSlide key={game._id}>
                     <div className="gameSlider">
-                        <img src={game.img} alt="Game Image" />
+                        <img src={game.img} alt={game.title} />
                         <div className={`video ${active ? 'active' : undefined}`}>
                             <iframe
                                 width="1280"
@@ -80,10 +80,17 @@ function GameSwiper({ games }) {
                             <h2>{game.title}</h2>
                             <p>{game.description}</p>
                             <div className="buttons">
-                                <a href="#" className="orderBtn" onClick={e => { e.preventDefault(); handleAddToBag(game); }}>
+                                <a href="/" className="orderBtn" onClick={e => { e.preventDefault(); handleAddToBag(game); }}>
                                     Order Now
                                 </a>
-                                <a href="#" className={`playBtn ${active ? 'active' : undefined}`} onClick={handleToggleVideo}>
+                                <a
+                                    href="/"
+                                    className={`playBtn ${active ? 'active' : undefined}`}
+                                    onClick={(event) => {
+                                        event.preventDefault();
+                                        handleToggleVideo();
+                                    }}
+                                >
                                     <span className="pause">
                                         <i className="bi bi-pause-fill"></i>
                                     </span>
