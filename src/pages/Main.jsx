@@ -12,6 +12,8 @@ function Main() {
   const { library, bag } = useContext(AppContext);
   const [active, setActive] = useState(false);
   const [games, setGames] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   const homeRef = useRef();
   const categoriesRef = useRef();
@@ -56,12 +58,20 @@ function Main() {
   };
 
   const fetchData = () => {
-    fetch("http://localhost:3000/api/gamesData.json")
+    setLoading(true);
+    setError("");
+
+    fetch("/api/gamesData.json")
       .then((res) => res.json())
       .then((data) => {
         setGames(data);
+        setLoading(false);
       })
-      .catch((e) => console.log(e.message));
+      .catch((e) => {
+        setError("Could not load games data.");
+        setLoading(false);
+        console.log(e.message);
+      });
   };
 
   useEffect(() => {
@@ -72,8 +82,10 @@ function Main() {
     <main>
       <SideMenu active={active} sectionActive={handleSectionActive} />
       <div className={`banner ${active ? "active" : undefined}`}>
-        <Header toggleActive={handleToggleActive} />
+        <Header toggleActive={handleToggleActive} sectionActive={handleSectionActive} />
         <div className="container-fluid">
+          {loading && <p>Loading games...</p>}
+          {!loading && error && <p>{error}</p>}
           {games && games.length > 0 && (
             <>
               <Home games={games} ref={homeRef} handleSectionActive={handleSectionActive} />

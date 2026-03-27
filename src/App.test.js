@@ -1,8 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+jest.mock('./pages/Main', () => () => <div>Main Page</div>);
+
+test('renders login page heading', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const headingElement = screen.getByText(/welcome to game store/i);
+  expect(headingElement).toBeInTheDocument();
 });

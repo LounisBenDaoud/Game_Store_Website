@@ -4,8 +4,8 @@ import userImg from "../images/me.jpg";
 import { AppContext } from "../App";
 
 
-function Header({ toggleActive }) {
-    const { bag, library } = useContext(AppContext);
+function Header({ toggleActive, sectionActive }) {
+    const { bag, library, currentUser, logout } = useContext(AppContext);
 
     return (
         <header>
@@ -13,11 +13,11 @@ function Header({ toggleActive }) {
                 <i className="bi bi-sliders"></i>
             </a>
             <div className="userItems">
-                <a href="#" className="icon">
+                <a href="#" className="icon" onClick={() => sectionActive('library')}>
                     <i className="bi bi-heart-fill"></i>
                     <span className="like">{library.length}</span>
                 </a>
-                <a href="#" className="icon">
+                <a href="#" className="icon" onClick={() => sectionActive('bag')}>
                     <i className="bi bi-bag-fill"></i>
                     <span className="bag">{bag.length}</span>
                 </a>
@@ -26,8 +26,16 @@ function Header({ toggleActive }) {
                         <img src={userImg} alt="User Image" />
                     </a>
                     <div className="user">
-                        <span>User Name</span>
-                        <a href="#">View Profile</a>
+                        <span>{currentUser?.username || "User"}</span>
+                        <a
+                            href="#"
+                            onClick={(event) => {
+                                event.preventDefault();
+                                logout();
+                            }}
+                        >
+                            Logout
+                        </a>
                     </div>
                 </div>
             </div>

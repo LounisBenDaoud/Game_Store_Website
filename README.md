@@ -10,6 +10,8 @@ This is a web application for browsing, searching, and managing video games, bui
 - Add games to your bag and manage your library
 - Filter games by categories
 - Responsive design for desktop and mobile
+- Login or create a new account before entering the app
+- New accounts are stored in JSON format in `src/data/usersData.json`
 
 ## Project Structure
 
@@ -30,13 +32,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 1. Clone the repository
 2. Run `npm install` to install dependencies
-3. Run `npm start` to launch the development server
+3. Run `npm start` to launch both the React app and auth API server
 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+Auth API runs on [http://localhost:5000](http://localhost:5000).
+
 ### Scripts
 
-`npm start` - Start the development server
+`npm start` - Start React app + auth API together
+`npm run client` - Start only React app
+`npm run server` - Start only auth API server
 `npm test` - Run tests
 `npm run build` - Build for production
 
@@ -46,6 +52,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 - `src/components/` - UI components
 - `src/pages/` - Main pages
 - `src/data/` - Data files
+
+## Authentication Data
+
+- Accounts are created from the login page (Create Account mode)
+- Account data is stored in `src/data/usersData.json`
+- Login uses `username` + `password`
 
 ## License
 
